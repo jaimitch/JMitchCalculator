@@ -2,8 +2,8 @@
   <div class="calculator">
 
 <div class="display">{{current || 0}}</div>
-<div class="leftP btn">(</div>
-<div class="rightP btn">)</div>
+<div @click="leftP" class="leftP btn">(</div>
+<div @click="rightP" class="rightP btn">)</div>
 <div @click="clear" class="btn">C</div>
 <div @click="plusMinus" class="btn">+/-</div>
 <div @click="percentage" class="btn">%</div>
@@ -59,6 +59,16 @@ methods: {
   point() {
     if (this.current.indexOf('.') === -1) {
       this.append('.')
+    }
+  },
+  leftP() {
+    if (this.current.indexOf('(') === -1) {
+      this.append('(')
+    }
+  },
+  rightP() {
+    if (this.current.indexOf(')') === -1) {
+      this.append(')')
     }
   },
   setPrevious() {
